@@ -56,8 +56,8 @@ public sealed class Synchronizer(string source, string replica, Action<string> l
         CheckAncestors(replica);
 
         if (!Directory.Exists(source))
-            throw new IOException(
-                "Source directory is missing. Synchronization aborted.");
+            throw new DirectoryNotFoundException(
+                $"Source directory does not exist: {source}");
 
         Scan(source);
 
