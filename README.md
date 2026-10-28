@@ -56,19 +56,3 @@ The dependency-free integration test executable exits nonzero on failure. It cov
 “Identical” means the same relative file/directory structure and file bytes. ACLs, ownership, timestamps, alternate data streams and hard-link relationships are not mirrored. Use regular files and directories on a filesystem with compatible filename semantics. Do not run multiple instances against the same replica.
 
 This is a periodic synchronizer, not a transactional snapshot system. Keep the source stable during a pass for a consistent result. Concurrent changes, filesystem failures or interruption can leave a partially synchronized replica; a subsequent successful pass converges it. Concurrent replacement of paths with links is unsupported. Ctrl+C waits for an active pass to finish.
-
-## Publish to GitHub
-
-1. Create a new **public** GitHub repository named `folder-sync` without initial files.
-2. Open a terminal in this directory:
-
-```sh
-git init
-git add .
-git commit -m "Implement one-way periodic folder synchronization"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/folder-sync.git
-git push -u origin main
-```
-
-3. Check that the GitHub Actions build succeeds and submit the public repository URL.
